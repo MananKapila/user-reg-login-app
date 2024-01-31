@@ -1,2 +1,1 @@
-# user-reg-login-app
-Basic springboot app for registeration and login
+Spring boot proj for user registeration and login
