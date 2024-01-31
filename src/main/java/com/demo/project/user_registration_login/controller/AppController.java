@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class AppController {
     @Autowired
@@ -29,5 +31,12 @@ public class AppController {
     public String processRegister(User user){
         userService.saveUserDetails(user);
         return "register_success";
+    }
+
+    @GetMapping("/users")
+    public String listUsers(Model model){
+        List<User> listOfAllUsers = userService.findAllUsers();
+        model.addAttribute("listOfAllUsers", listOfAllUsers);
+        return "users";
     }
 }
